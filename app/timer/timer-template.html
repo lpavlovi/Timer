@@ -1,0 +1,44 @@
+<div class="timer-container">
+  <div class="row top-row-container">
+    <div class="top-row-background">
+      <div class="col-xs-7 no_padding">
+        <div class="time-text">
+<!--          Add an angular binding for the time to be displayed here-->
+        <!-- eg: front.time -->
+          {{front.time}}
+        </div>
+      </div>
+      <!-- add the queue column here -->
+      <div class="col-xs-3 no_padding">
+        <div class="queue_panel no_padding">
+          <div class="queue_panel-title">Queue</div>
+          <div class="queue_panel-list">
+            <ul class="no_points no_padding">
+<!--Added a front.queue in the repeat directive -->
+<!--              <li ng-repeat="q in front.queue">{{q | doubleDigit}}</li>-->
+              <li ng-repeat="q in front.queue">{{q}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-2 top-row-right-panel">
+        <button class="button-small gray-button" data-ng-click="remove()"><i class="fa fa-times"></i></button>
+        <button class="button-small gray-button"><i class="fa fa-repeat"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="row button-row">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no_padding button-left">
+      <button data-ng-click="start()" class="flat-button fb-start button-font button-left">Start</button>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no_padding button-middle">
+      <button data-ng-click="stop()" class="flat-button fb-stop button-font">Stop</button>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 no_padding col-lg-3">
+      <button data-ng-click="reset()" class="flat-button fb-reset button-font">Reset</button>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no_padding button-right">
+        <button class="flat-button fb-setup button-font button-right">Setup</button>
+    </div>
+  </div>
+</div>

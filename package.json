@@ -1,0 +1,11 @@
+{
+  "name": "BasicApp",
+  "version": "0.0.1",
+  "main": "main.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+     "bower": "^1.4.0"
+  }
+}

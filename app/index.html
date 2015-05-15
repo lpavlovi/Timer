@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="styles/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/assisting.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/buttons.css">
+<title>TIMERS APP</title>
+<!-- Add:
+      * angular.js
+      * angular-ui-router
+      * jQuery
+      * bootstrap.js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<!-- Add:
+      * app.js
+      * time-setting-service.js
+      * timer-directive.js -->
+  <script src="app.js"></script>
+  <script src="services/time-setting-service.js"></script>
+  <script src="timer/timer-directive.js"></script>
+</head>
+<body ng-app="rootModule" style="margin-top:50px;">
+<div ng-controller="rootController">
+  <nav class="navbar navbar-fixed-top" style="background-color:#272727">
+    <div class="container" style="height:50px">
+      <div class="head-items head-left">Timer App</div>
+      <div class="has-feedback quick-time-input head-right">
+        <input type="text" data-ng-model="quickTime" class="form-control" style="padding-right: 25px;" placeholder="MM:SS" />
+        <button type="button" data-ng-click="front.getTime()" class="head-button">
+          <i class="my-glyph glyphicon-plus-sign"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="container" style="width:480px">
+    <timer config="t" index="$index" ng-repeat="t in front.master"></timer>
+  </div>
+</div>
+</body>
+</html>
+
+
