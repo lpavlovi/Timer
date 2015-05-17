@@ -16,7 +16,13 @@ angular.module('rootModule', [])
     }
   };
   function init() {
-    timerService.pushToMaster({quickTime:[25,0],queue:[ [5,0] ]});
+    // timerService.pushToMaster({quickTime:[25,0],queue:[ [5,0] ]});
+    timerService.pushToMaster(
+      { 
+        quickTime:[7,30],
+        alarm: new Audio('./audio/alarm.mp3'),
+        queue:[[7,15], [7,30], [7,20]]
+      });
   }
   init();
 }]);

@@ -69,14 +69,13 @@ angular.module('rootModule')
             seconds = 59;
           }
           else {
-            if(!isQueueEmpty()) {
+            if(isQueueEmpty()) {
               // DONE -- stop the recursive calls
               scope.stop();
               // TODO: Add alarm sound here
               if(angular.isDefined(scope.config.alarm)) {scope.config.alarm.play();}
               isDone = true;
-            }
-            else {
+            } else {
               // Goto next queued interval
               // -- update the minutes and seconds
               // -- slice queue array
@@ -84,6 +83,7 @@ angular.module('rootModule')
               // --:-- available through the formatTime function
               // -- run scope.$apply()
               deque();
+              if(angular.isDefined(scope.config.alarm)) {scope.config.alarm.play();}
             }
           }
         }
@@ -130,7 +130,7 @@ angular.module('rootModule')
           expectedTime = 0;
       }
       function isQueueEmpty() {
-        return !!queue[0];
+        return !queue[0];
       }
       init();
     }
