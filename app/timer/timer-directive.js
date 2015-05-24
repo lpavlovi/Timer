@@ -21,7 +21,7 @@ angular.module('rootModule')
       var delta;
       var actual;
       var resetValue;
-      var isQueueDefined;
+      var isQueueDefined = false;
       var seconds = 3;
       var minutes = 0;
       var stopcheck = false;
@@ -110,11 +110,13 @@ angular.module('rootModule')
         return ( m < 10 ? '0' + m : m ) + ( s < 10 ? ':0' + s : ':' + s );
       }
       function init() {
-        isQueueDefined = angular.isDefined(scope.config) && angular.isDefined(scope.config.queue);
-
-        if(angular.isDefined(scope.config) && angular.isDefined(scope.config.quickTime)) {
-          minutes = scope.config.quickTime[0];
-          seconds = scope.config.quickTime[1];
+        if(angular.isDefined(scope.config)) {
+          isQueueDefined = angular.isDefined(scope.config.queue);
+          if(angular.isDefined(scope.config.quickTime)) {
+            minutes = scope.config.quickTime[0];
+            seconds = scope.config.quickTime[1];
+          }
+          if(!!scope.config.begin) { scope.start(); }
         }
         else {
           minutes = 25;

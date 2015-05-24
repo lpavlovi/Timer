@@ -16,7 +16,7 @@
             <ul class="no_points no_padding">
 <!--Added a front.queue in the repeat directive -->
 <!--              <li ng-repeat="q in front.queue">{{q | doubleDigit}}</li>-->
-              <li ng-repeat="q in front.queue">{{q.interval}}</li>
+              <li ng-repeat="q in front.queue track by $index">{{q.interval}}</li>
             </ul>
           </div>
         </div>
