@@ -1,12 +1,10 @@
 angular.module('rootModule', [])
 .controller('rootController', ['$scope', 'timerService', function($scope, timerService) {
+  'use strict';
   $scope.test = 'Testing';
   $scope.front = { master:timerService.getMaster(),
     remove: function(index) {
       timerService.removeFromMaster(index);
-    },
-    add: function(x) {
-      timerService.pushToMaster({quicktime:[1,45]});
     },
     getTime: function() {
       var time;

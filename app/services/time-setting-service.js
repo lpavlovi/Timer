@@ -1,3 +1,4 @@
+'use strict';
 angular.module('rootModule')
   .service('timerService', function() {
     var masterArray = [];
