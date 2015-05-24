@@ -21,9 +21,9 @@ angular.module('rootModule')
       var delta;
       var actual;
       var resetValue;
+      var isQueueDefined;
       var seconds = 3;
       var minutes = 0;
-      var queue = [];
       var stopcheck = false;
       var isDone = false;
       scope.start = function() {
@@ -69,11 +69,9 @@ angular.module('rootModule')
             seconds = 59;
           }
           else {
-            if(isQueueEmpty()) {
+            if(!isQueueDefined || isQueueEmpty()) {
               // DONE -- stop the recursive calls
               scope.stop();
-              // TODO: Add alarm sound here
-              if(angular.isDefined(scope.config.alarm)) {scope.config.alarm.play();}
               isDone = true;
             } else {
               // Goto next queued interval
@@ -83,8 +81,8 @@ angular.module('rootModule')
               // --:-- available through the formatTime function
               // -- run scope.$apply()
               deque();
-              if(angular.isDefined(scope.config.alarm)) {scope.config.alarm.play();}
             }
+              if(angular.isDefined(scope.config.alarm)) {scope.config.alarm.play();}
           }
         }
         scope.front.time = formatTime(minutes, seconds);
@@ -92,24 +90,28 @@ angular.module('rootModule')
       }
       function deque() {
         scope.front.queue.splice(0, 1);
-        var a = queue.splice(0, 1);
-        minutes = a[0][0];
-        seconds = a[0][1];
-        updateReset(minutes, seconds);
+        var a = scope.config.queue.splice(0, 1)[0];
+        minutes = a.minutes;
+        seconds = a.seconds;
+        updateReset(a.minutes, a.seconds);
       }
       function updateReset(m, s) {
         resetValue = [m,s];
       }
       function formatQueue() {
         scope.front.queue = [];
-        for(var i = 0; i < queue.length; ++i) {
-          scope.front.queue.push(formatTime(queue[i][0], (queue[i][1])));
+        if(isQueueDefined) {
+          for(var i = 0; i < scope.config.queue.length; ++i) {
+            scope.front.queue.push({interval: formatTime(scope.config.queue[i].minutes, (scope.config.queue[i].seconds))});
+          }
         }
       }
       function formatTime(m, s) {
         return ( m < 10 ? '0' + m : m ) + ( s < 10 ? ':0' + s : ':' + s );
       }
       function init() {
+        isQueueDefined = angular.isDefined(scope.config) && angular.isDefined(scope.config.queue);
+
         if(angular.isDefined(scope.config) && angular.isDefined(scope.config.quickTime)) {
           minutes = scope.config.quickTime[0];
           seconds = scope.config.quickTime[1];
@@ -117,9 +119,6 @@ angular.module('rootModule')
         else {
           minutes = 25;
           seconds = 0;
-        }
-        if(angular.isDefined(scope.config.queue)) {
-          queue = scope.config.queue;
         }
         updateReset(minutes, seconds);
         scope.front.time = formatTime(minutes,seconds);
@@ -130,7 +129,7 @@ angular.module('rootModule')
           expectedTime = 0;
       }
       function isQueueEmpty() {
-        return !queue[0];
+        return !scope.config.queue[0];
       }
       init();
     }

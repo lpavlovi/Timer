@@ -11,4 +11,14 @@ angular.module('rootModule')
     this.removeFromMaster = function(index) {
       masterArray.splice(index,1);
     };
+    this.validateUserInput = function(userInput) {
+      var time;
+      if(userInput !== '' &&
+          (time = userInput.split(':')).length === 2 && !isNaN(time[0]) && !isNaN(time[1])) {
+        this.pushToMaster({
+          quickTime:[parseInt(time[0]),parseInt(time[1])],
+          alarm: new Audio('../audio/alarm.mp3')
+        });
+      }
+    };
   });

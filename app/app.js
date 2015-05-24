@@ -8,22 +8,17 @@ angular.module('rootModule', [])
     },
     getTime: function() {
       var time;
-      if(angular.isDefined($scope.quickTime) && $scope.quickTime !== '' && (time = $scope.quickTime.split(':')).length === 2 && !isNaN(time[0]) && !isNaN(time[1])) {
-        timerService.pushToMaster({quickTime:[parseInt(time[0]),parseInt(time[1])]});
+      if(angular.isDefined($scope.quickTime)) {
+        timerService.validateUserInput($scope.quickTime);
       }
     }
   };
   function init() {
     timerService.pushToMaster(
-      {quickTime:[25,0],
-        alarm: new Audio('./audio/alarm.mp3'),
-        queue:[ [5,0] ]
-      });
-    timerService.pushToMaster(
       { 
-        quickTime:[7,30],
+        quickTime:[0,3],
         alarm: new Audio('./audio/alarm.mp3'),
-        queue:[[7,15], [7,30], [7,20]]
+        queue:[{minutes:0, seconds:2}, {minutes:0, seconds:2}]
       });
   }
   init();
