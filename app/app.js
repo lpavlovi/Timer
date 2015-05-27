@@ -1,4 +1,4 @@
-angular.module('rootModule', [])
+angular.module('rootModule', ['commandModule', 'servicesModule'])
 .controller('rootController', ['$scope', 'timerService', function($scope, timerService) {
   'use strict';
   $scope.test = 'Testing';
@@ -14,12 +14,20 @@ angular.module('rootModule', [])
   };
   function init() {
     timerService.pushToMaster(
-      { 
+      {
+        quickTime:[5,0],
+        alarm: new Audio('./audio/alarm.mp3'),
+        queue: [{minutes:1, seconds:0}],
+        begin: false
+      });
+    timerService.pushToMaster(
+      {
         quickTime:[25,0],
         alarm: new Audio('./audio/alarm.mp3'),
         queue: [{minutes:5, seconds:0}],
         begin: false
       });
   }
-  init();
+  /* Initialize the timers */
+  /* init(); */
 }]);

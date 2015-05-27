@@ -1,5 +1,5 @@
 'use strict';
-angular.module('rootModule')
+angular.module('servicesModule')
 .directive('keypressBinding', ['keyManager', function(keyManager) {
   return {
     restrict: 'EA',

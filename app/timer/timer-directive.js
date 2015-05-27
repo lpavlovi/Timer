@@ -39,10 +39,10 @@ angular.module('rootModule')
       };
       scope.reset = function() {
         // add reset behaviour here
-        isDone = false;
         seconds = resetValue[1];
         minutes = resetValue[0];
         scope.front.time = formatTime(minutes, seconds);
+        isDone = seconds !== 0 || minutes !== 0;
       };
       scope.remove = function() {
         timerService.removeFromMaster(scope.index);

@@ -1,12 +1,14 @@
 'use strict';
-angular.module('rootModule')
+angular.module('servicesModule')
   .service('keyManager', function() {
-    // stuff
     var keyValuePair = [];
     this.add = function(x) {
-      masterArray.push(settings);
+      keyValuePair.push(x);
     };
     this.remove = function(i) {
-      masterArray.push(settings);
+      keyValuePair.splice(i,1);
+    };
+    this.onEvent = function(e) {
+      console.log(e);
     };
 });

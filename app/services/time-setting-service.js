@@ -1,5 +1,5 @@
 'use strict';
-angular.module('rootModule')
+angular.module('servicesModule')
   .service('timerService', function() {
     var masterArray = [];
     var timingSets = [

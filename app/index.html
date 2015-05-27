@@ -6,7 +6,8 @@
   <link href='//fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/assisting.css">
+  <link rel="stylesheet" href="styles/timer.css">
+  <link rel="stylesheet" href="styles/command.css">
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/buttons.css">
 <title>TIMERS APP</title>
@@ -24,29 +25,20 @@
       * time-setting-service.js
       * timer-directive.js -->
   <script src="app.js"></script>
+  <script src="command/command-module.js"></script>
+  <script src="command/command-directive.js"></script>
+  <script src="services/services-module.js"></script>
   <script src="services/time-setting-service.js"></script>
+  <script src="services/keypress-manager-service.js"></script>
+  <script src="services/keypress-directive.js"></script>
   <script src="timer/timer-directive.js"></script>
-  <script src="tools/enter-directive.js"></script>
-  <script src="tools/keypress-directive.js"></script>
 </head>
-<body ng-app="rootModule" style="margin-top:50px;">
+<body ng-app="rootModule">
 <div keypress-binding ng-controller="rootController">
-  <nav class="navbar navbar-fixed-top" style="background-color:#272727">
-    <div class="container" style="height:50px">
-      <div class="head-items head-left">Timer App</div>
-      <div class="has-feedback quick-time-input head-right">
-        <input id="theoneandonly" type="text" ng-enter callback="front.getTime" data-ng-model="quickTime" class="form-control" style="padding-right: 25px;" placeholder="MM:SS" />
-        <button type="button" data-ng-click="front.getTime(false)" class="head-button">
-          <i class="my-glyph glyphicon-plus-sign"></i>
-        </button>
-      </div>
-    </div>
-  </nav>
+  <command-line></command-line>
   <div class="container" style="width:480px">
     <timer config="t" index="$index" ng-repeat="t in front.master"></timer>
   </div>
 </div>
 </body>
 </html>
-
-
