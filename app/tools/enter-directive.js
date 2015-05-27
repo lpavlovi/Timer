@@ -9,6 +9,8 @@ angular.module('rootModule')
       shift_callback: '='
     },
     link: function(scope, elem, attrs) {
+      var bb = document.getElementById("theoneandonly");
+      bb.focus();
       elem.bind("keydown keypress", function (event) {
         if(event.which === 13) {
           scope.callback(event.shiftKey);
