@@ -1,1 +1,1 @@
-angular.module('commandModule', []);
+angular.module('commandModule', ['servicesModule']);

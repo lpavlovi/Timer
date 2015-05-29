@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="styles/command.css">
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/buttons.css">
-<title>TIMERS APP</title>
+<title>Luka's App</title>
 <!-- Add:
       * angular.js
       * angular-ui-router
@@ -33,9 +33,10 @@
   <script src="services/keypress-directive.js"></script>
   <script src="timer/timer-directive.js"></script>
 </head>
+
 <body ng-app="rootModule">
 <div keypress-binding ng-controller="rootController">
-  <command-line></command-line>
+  <command-line data-ng-show="cli"></command-line>
   <div class="container" style="width:480px">
     <timer config="t" index="$index" ng-repeat="t in front.master"></timer>
   </div>

@@ -1,12 +1,12 @@
+'use strict';
 angular.module('commandModule')
-  .directive('commandLine', function() {
-    return {
-      restrict: 'EA',
-      templateUrl: 'command/command-template.html',
-      link: function(scope, elem, attrs) {
-        // stuff goes here
-        console.log('LINKED');
-      }
-    };
-  }
-);
+.directive('commandLine', ['keyManager', function(keyManager) {
+  return {
+    restrict: 'EA',
+    scope: false,
+    templateUrl: 'command/command-template.html',
+    link: function postLink(scope, elem, attrs) {
+      keyManager.setInputElement(elem.contents().find("input")[0]);
+    }
+  };
+}]);

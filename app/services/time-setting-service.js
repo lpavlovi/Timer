@@ -5,7 +5,6 @@ angular.module('servicesModule')
     var timingSets = [
       {name:'POM', setup:{quickTime:[25,0], alarm: new Audio('../audio/alarm.mp3'), queue:[{minutes:5, seconds:0}]}},
       {name:'SPR', setup:{quickTime:[7,30], alarm: new Audio('../audio/alarm.mp3'), queue:[{minutes:7, seconds:30}, {minutes:7, seconds:30}, {minutes:7, seconds:30}]}}
-      
       ];
     this.pushToMaster = function(settings) {
       masterArray.push(settings);
@@ -19,7 +18,7 @@ angular.module('servicesModule')
     this.validateUserInput = function(userInput, _begin) {
       var time;
       if(userInput !== '') {
-        // If the user inputs a time interval with minutes and seconds separated by ':' 
+        // If the user inputs a time interval with minutes and seconds separated by ':'
         if((time = userInput.split(':')).length === 2 && validNumber(time[0]) && validNumber(time[1])) {
           this.pushToMaster({
             quickTime:[parseInt(time[0]),parseInt(time[1])],
@@ -27,7 +26,15 @@ angular.module('servicesModule')
             begin: _begin
           });
         }
-        // User inputs a preset phrase 
+        // no ':' delimeter
+        else if(userInput.length === 4 && validNumber(userInput.substring(0,2)) && validNumber(userInput.substring(2,4))) {
+          this.pushToMaster({
+            quickTime:[parseInt(userInput.substring(0,2)),parseInt(userInput.substring(2,4))],
+            alarm: new Audio('../audio/alarm.mp3'),
+            begin: _begin
+          });
+        }
+        // User inputs a preset phrase
         else {
           // search for a predefined set
           this.searchForPhrase(userInput, _begin);

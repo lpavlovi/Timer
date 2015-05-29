@@ -1,7 +1,6 @@
 angular.module('rootModule', ['commandModule', 'servicesModule'])
-.controller('rootController', ['$scope', 'timerService', function($scope, timerService) {
+.controller('rootController', ['$scope', 'keyManager', 'timerService', function($scope, keyManager, timerService) {
   'use strict';
-  $scope.test = 'Testing';
   $scope.front = { master:timerService.getMaster(),
     remove: function(index) {
       timerService.removeFromMaster(index);
@@ -30,4 +29,17 @@ angular.module('rootModule', ['commandModule', 'servicesModule'])
   }
   /* Initialize the timers */
   /* init(); */
+  $scope.cli = true;
+
+  $scope.commandModel = 'MMSS';
+  $scope.a = function(e) {
+    if(keyManager.onEvent(e, $scope.commandModel)) {
+      $scope.commandModel = '';
+      $scope.cli = false;
+    } else {
+      $scope.cli = true;
+    }
+    $scope.$apply();
+    keyManager.getInputElement().focus();
+  };
 }]);
