@@ -19,6 +19,11 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script>
+    try {
+        $ = jQuery = module.exports;
+    } catch(e) {}
+</script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <!-- Add:
       * app.js
