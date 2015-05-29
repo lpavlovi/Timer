@@ -104,3 +104,6 @@
 .no_points {
   list-style: none;
 }
+.input_state_opacity {
+  opacity: 1.0;
+}

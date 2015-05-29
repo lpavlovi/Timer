@@ -6,7 +6,9 @@ angular.module('commandModule')
     scope: false,
     templateUrl: 'command/command-template.html',
     link: function postLink(scope, elem, attrs) {
-      keyManager.setInputElement(elem.contents().find("input")[0]);
+      var inputElement = elem.contents().find("input")[0];
+      inputElement.focus();
+      keyManager.setInputElement(inputElement);
     }
   };
 }]);

@@ -1,6 +1,8 @@
 angular.module('rootModule', ['commandModule', 'servicesModule'])
 .controller('rootController', ['$scope', 'keyManager', 'timerService', function($scope, keyManager, timerService) {
   'use strict';
+  var STANDARD_STATE = false;
+  var cli = true;
   $scope.front = { master:timerService.getMaster(),
     remove: function(index) {
       timerService.removeFromMaster(index);
@@ -29,17 +31,34 @@ angular.module('rootModule', ['commandModule', 'servicesModule'])
   }
   /* Initialize the timers */
   /* init(); */
-  $scope.cli = true;
 
-  $scope.commandModel = 'MMSS';
+  $scope.commandModel = '';
   $scope.a = function(e) {
     if(keyManager.onEvent(e, $scope.commandModel)) {
-      $scope.commandModel = '';
-      $scope.cli = false;
-    } else {
-      $scope.cli = true;
+      intoStandard();
     }
+    else if(cli === false){
+      intoInput();
+    }
+  };
+  function intoStandard() {
+    cli = false;
+    fadeOut();
+    $scope.$apply();
+  }
+  function intoInput() {
+    cli = true;
+    fadeIn();
+    $scope.commandModel = '';
     $scope.$apply();
     keyManager.getInputElement().focus();
-  };
+  }
+  function fadeOut() {
+    $("command-line").fadeOut(75);
+    $(".input_state_opacity").css({opacity:1.0});
+  }
+  function fadeIn() {
+    $("command-line").fadeIn(75);
+    $(".input_state_opacity").css({opacity:0.3});
+  }
 }]);

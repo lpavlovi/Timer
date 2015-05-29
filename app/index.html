@@ -36,7 +36,8 @@
 
 <body ng-app="rootModule">
 <div keypress-binding ng-controller="rootController">
-  <command-line data-ng-show="cli"></command-line>
+  <!-- <command-line data-ng-show="cli"></command-line> -->
+  <command-line></command-line>
   <div class="container" style="width:480px">
     <timer config="t" index="$index" ng-repeat="t in front.master"></timer>
   </div>
