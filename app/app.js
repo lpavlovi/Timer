@@ -54,11 +54,11 @@ angular.module('rootModule', ['commandModule', 'servicesModule'])
     keyManager.getInputElement().focus();
   }
   function fadeOut() {
-    $("command-line").fadeOut(75);
+    $("command-line").fadeOut(150);
     $(".input_state_opacity").css({opacity:1.0});
   }
   function fadeIn() {
-    $("command-line").fadeIn(75);
+    $("command-line").fadeIn(150);
     $(".input_state_opacity").css({opacity:0.3});
   }
 }]);
