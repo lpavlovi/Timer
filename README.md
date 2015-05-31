@@ -13,7 +13,14 @@ Includes the feature to set a queue of time intervals to be conunted down.
   electron ./
 ```
 ## Usage:
+```
 Press 'i' to see the command input (it's really just a textbox)
+Type something in
+Press Enter if your're satisfied
+  Press Shift Enter if you want the timer to start right away
+Esc if you want to get rid of the input box
+
+```
 ###  Acceptable input:
 ```
   1030  -->   Timer Set to 10 minutes and 30 seconds
