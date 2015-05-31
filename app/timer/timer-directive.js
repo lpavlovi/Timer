@@ -28,6 +28,7 @@ angular.module('rootModule')
       var isDone = false;
       scope.start = function() {
         // BENCHMARK: BEGIN
+        debugger;
         if(!stopcheck && !isDone) {
           benchStart();
           stopcheck = true;
@@ -42,7 +43,7 @@ angular.module('rootModule')
         seconds = resetValue[1];
         minutes = resetValue[0];
         scope.front.time = formatTime(minutes, seconds);
-        isDone = seconds !== 0 || minutes !== 0;
+        isDone = seconds === 0 && minutes === 0;
       };
       scope.remove = function() {
         timerService.removeFromMaster(scope.index);
