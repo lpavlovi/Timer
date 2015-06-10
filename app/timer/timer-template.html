@@ -23,22 +23,19 @@
       </div>
       <div class="col-xs-2 top-row-right-panel">
         <button class="button-small gray-button" data-ng-click="remove()"><i class="fa fa-times"></i></button>
-        <button class="button-small gray-button"><i class="fa fa-repeat"></i></button>
+        <button class="button-small gray-button" data-ng-click="hardReset()"><i class="fa fa-repeat"></i></button>
       </div>
     </div>
   </div>
   <div class="row button-row">
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no_padding button-left">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no_padding button-left">
       <button data-ng-click="start()" class="flat-button fb-start button-font button-left">Start</button>
     </div>
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no_padding button-middle">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no_padding button-middle">
       <button data-ng-click="stop()" class="flat-button fb-stop button-font">Stop</button>
     </div>
-    <div class="col-xs-3 col-sm-3 col-md-3 no_padding col-lg-3">
-      <button data-ng-click="reset()" class="flat-button fb-reset button-font">Reset</button>
-    </div>
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no_padding button-right">
-        <button class="flat-button fb-setup button-font button-right">Setup</button>
+    <div class="col-xs-4 col-sm-4 col-md-4 no_padding col-lg-4">
+      <button data-ng-click="reset()" class="flat-button fb-reset button-right button-font">Reset</button>
     </div>
   </div>
 </div>

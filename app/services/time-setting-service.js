@@ -2,9 +2,20 @@
 angular.module('servicesModule')
   .service('timerService', function() {
     var masterArray = [];
+    function Interval(quick, queue, begin) {
+      this.quickTime = quick;
+      this.begin = begin;
+      this.queue = [];
+      for (var i = 0; i < queue.length; ++i) {
+        this.queue.push({minutes:queue[i][0], seconds:queue[i][1]});
+      }
+      this.alarm = new Audio('../audio/alarm.mp3');
+    }
     var timingSets = [
-      {name:'POM', setup:{quickTime:[25,0], alarm: new Audio('../audio/alarm.mp3'), queue:[{minutes:5, seconds:0}]}},
-      {name:'SPR', setup:{quickTime:[7,30], alarm: new Audio('../audio/alarm.mp3'), queue:[{minutes:7, seconds:30}, {minutes:7, seconds:30}, {minutes:7, seconds:30}]}}
+        {name:'POM', quick:[25,0], queue:[[5,0]]},
+        {name:'SPR', quick:[7,30], queue:[[7,30], [5,0]]},
+        {name:'A', quick:[0,2], queue:[[0,2]]},
+        {name:'B', quick:[0,5], queue:[[0,5]]},
       ];
     this.pushToMaster = function(settings) {
       masterArray.push(settings);
@@ -44,9 +55,7 @@ angular.module('servicesModule')
     this.searchForPhrase = function(x, _begin) {
       for(var i = 0; i < timingSets.length; ++i) {
         if(x === timingSets[i].name) {
-          var a = timingSets[i].setup;
-          a.begin = _begin;
-          this.pushToMaster(a);
+          this.pushToMaster(new Interval(timingSets[i].quick, timingSets[i].queue, _begin));
           return;
         }
       }

@@ -7,7 +7,6 @@ angular.module('rootModule')
     templateUrl: 'timer/timer-template.html',
     replace: true,
     scope: {
-      // an object array with two values - 0: seconds, 1: minutes
       config: '=',
       index:'='
     },
@@ -21,6 +20,7 @@ angular.module('rootModule')
       var delta;
       var actual;
       var resetValue;
+      var currentQueue;
       var isQueueDefined = false;
       var seconds = 3;
       var minutes = 0;
@@ -44,6 +44,16 @@ angular.module('rootModule')
         minutes = resetValue[0];
         scope.front.time = formatTime(minutes, seconds);
         isDone = seconds === 0 && minutes === 0;
+      };
+      scope.hardReset = function() {
+        // runs under the assumption that specific config values are defined
+        minutes = scope.config.quickTime[0];
+        seconds = scope.config.quickTime[1];
+        updateReset(minutes, seconds);
+        scope.front.time = formatTime(minutes,seconds);
+        formatQueue();
+        stopcheck = false;
+        isDone = false;
       };
       scope.remove = function() {
         timerService.removeFromMaster(scope.index);
@@ -91,7 +101,7 @@ angular.module('rootModule')
       }
       function deque() {
         scope.front.queue.splice(0, 1);
-        var a = scope.config.queue.splice(0, 1)[0];
+        var a = currentQueue.splice(0, 1)[0];
         minutes = a.minutes;
         seconds = a.seconds;
         updateReset(a.minutes, a.seconds);
@@ -102,8 +112,9 @@ angular.module('rootModule')
       function formatQueue() {
         scope.front.queue = [];
         if(isQueueDefined) {
-          for(var i = 0; i < scope.config.queue.length; ++i) {
-            scope.front.queue.push({interval: formatTime(scope.config.queue[i].minutes, (scope.config.queue[i].seconds))});
+          currentQueue = scope.config.queue.slice();
+          for(var i = 0; i < currentQueue.length; ++i) {
+            scope.front.queue.push({interval: formatTime(currentQueue[i].minutes, currentQueue[i].seconds)});
           }
         }
       }
@@ -132,7 +143,7 @@ angular.module('rootModule')
           expectedTime = 0;
       }
       function isQueueEmpty() {
-        return !scope.config.queue[0];
+        return !currentQueue[0];
       }
       init();
     }
