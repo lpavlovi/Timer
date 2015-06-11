@@ -1,10 +1,11 @@
 # Timer
-Electron timer application. Currently a work in progress.
+###Check me out at: http://mylightswitch.me
+Electron (Atom-shell) timer application. Currently a work in progress.
 
 Allows the user to specify a time to be counted down.
 Includes the feature to set a queue of time intervals to be conunted down.
 
-## Installation:
+## Installation - Electron:
 ```
   git clone https://github.com/lpavlovi/Timer.git
   cd Timer
@@ -12,6 +13,15 @@ Includes the feature to set a queue of time intervals to be conunted down.
   -- Run the Electron App
   electron ./
 ```
+## Installation - Web App:
+```
+  git clone https://github.com/lpavlovi/Timer.git
+  cd Timer
+  npm install
+  npm start
+  -- Open browser to http://localhost:3000/
+```
+
 ## Usage:
 ```
 Press 'i' to see the command input (it's really just a textbox)
@@ -21,7 +31,7 @@ Press Enter if your're satisfied
 Esc if you want to get rid of the input box
 
 ```
-###  Acceptable input:
+###  Examples of acceptable input:
 ```
   1030  -->   Timer Set to 10 minutes and 30 seconds
   05:00  -->  Timer Set to 5 minutes
