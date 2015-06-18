@@ -28,7 +28,6 @@ angular.module('rootModule')
       var isDone = false;
       scope.start = function() {
         // BENCHMARK: BEGIN
-        debugger;
         if(!stopcheck && !isDone) {
           benchStart();
           stopcheck = true;

@@ -42,7 +42,7 @@ angular.module('servicesModule')
       else if(e.which === 13) {
         this.standardState = true;
         // process input
-        timerService.validateUserInput(input, e.shiftKey);
+        timerService.validateUserInput(input.toUpperCase(), e.shiftKey);
       }
     }
     /*console.log('Keypress: ' + e.which);*/

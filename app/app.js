@@ -1,5 +1,5 @@
 angular.module('rootModule', ['commandModule', 'servicesModule'])
-.controller('rootController', ['$scope', 'keyManager', 'timerService', function($scope, keyManager, timerService) {
+.controller('rootController', ['$scope', 'keyManager', 'timerService', 'intervalFactory', function($scope, keyManager, timerService, interval) {
   'use strict';
   var STANDARD_STATE = false;
   var cli = true;
@@ -13,8 +13,8 @@ angular.module('rootModule', ['commandModule', 'servicesModule'])
       }
     }
   };
-  function init() {
-    timerService.pushToMaster(
+   function init() {
+   /* timerService.pushToMaster(
       {
         quickTime:[5,0],
         alarm: new Audio('./audio/alarm.mp3'),
@@ -28,9 +28,12 @@ angular.module('rootModule', ['commandModule', 'servicesModule'])
         queue: [{minutes:5, seconds:0}],
         begin: false
       });
+*/
+    console.log(interval);
   }
   /* Initialize the timers */
   /* init(); */
+  init();
 
   $scope.commandModel = '';
   $scope.a = function(e) {
