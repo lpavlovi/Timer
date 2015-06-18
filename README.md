@@ -33,9 +33,9 @@ Esc if you want to get rid of the input box
 ```
 ###  Examples of acceptable input:
 ```
-  1030  -->   Timer Set to 10 minutes and 30 seconds
-  05:00  -->  Timer Set to 5 minutes
-  0010  -->   Timer Set to 10 seconds
+  1030  -->   Timer set to 10 minutes and 30 seconds
+  05:00  -->  Timer set to 5 minutes
+  0010  -->   Timer set to 10 seconds
   POM -->     Timer set to 25 minutes and puts 5 minutes in queue
   SPR -->     Timer set to 7:30 and puts 7:30 in queue threee times
 ```
