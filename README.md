@@ -1,5 +1,5 @@
 # Timer
-###Check me out at: http://mylightswitch.me
+
 Electron (Atom-shell) timer application. Currently a work in progress.
 
 Allows the user to specify a time to be counted down.
