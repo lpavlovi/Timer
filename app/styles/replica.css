@@ -1,0 +1,168 @@
+.timer-container {
+  box-shadow: 0px 0px 8px #A9A9A9;
+  border-radius: 12px;
+  max-width: 450px;
+  margin: 20px auto;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.timer-top {
+  height: 110px;
+}
+
+.outline {
+  border: 1px solid #272727;
+  box-sizing: border-box;
+}
+.timer-bottom {
+  height: 40px;
+}
+
+.timer-time,
+.timer-queue,
+.timer-side_buttons {
+  height: 110px;
+  float:left;
+  background-color: #272727;
+}
+
+.timer-time {
+  width: 262px;
+  border-radius: 12px 0 0 0;
+}
+.timer-queue {
+  width: 113px;
+}
+.timer-side_buttons {
+  width: 75px;
+  border-radius: 0 12px 0 0;
+  text-align: center;
+}
+.time-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 65px;
+  line-height: 110px;
+  text-align: center;
+  color: white;
+}
+.queue_panel {
+  height: 90px;
+  margin-top: 10px;
+  border-left: solid 1px #DEDEDE;
+  border-right: solid 1px #DEDEDE;
+}
+.queue_panel-title {
+  height: 18px;
+  color: white;
+  text-align: left;
+  font-size: 18px;
+  position: relative;
+  top: -1px;
+  padding-left: 10px;
+}
+.queue_panel-list {
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  position: relative;
+  top: 2px;
+}
+.no-style {
+  list-style:none;
+  padding: 0;
+  margin: 0;
+}
+
+.hide-me {
+  visibility: hidden;
+}
+.remove-me {
+  display: none;
+}
+
+/* BUTTONS */
+.button-small{
+    color: #fff !important;
+    word-spacing: 0.25em;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    border: none;
+    line-height: 22px;
+    padding: 6px 0px 6px 0px;
+    text-align: center;
+    margin-top: 13px;
+    margin-bottom: 2px;
+    text-decoration: none;
+    width: 50px;
+}
+.button-small:visited{
+      color: #fff;
+}
+.button-small:hover{
+    color: rgba(255,255,255, 0.75);
+    text-decoration: none;
+    -webkit-box-shadow:inset 0 10px 20px rgba(255,255,255, 0.10);
+    -moz-box-shadow: inset 0 10px 20px rgba(255,255,255, 0.10);
+    box-shadow: inset 0 10px 20px rgba(255,255,255, 0.10);
+}
+.button-small:active {
+    -webkit-box-shadow: inset 0 2px 2px rgba(0,0,0, 0.3), inset 0 10px 20px rgba(0,0,0, 0.08);
+    -moz-box-shadow: inset 0 2px 2px rgba(0,0,0, 0.3), inset 0 10px 20px rgba(0,0,0, 0.08);
+    box-shadow: inset 0 2px 2px rgba(0,0,0, 0.3), inset 0 10px 20px rgba(0,0,0, 0.08);
+}
+.gray-button {
+  background: rgb(160, 160, 160);
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 480px) {
+  .timer-container {
+    width: 270px;
+  }
+  .timer-top,
+  .timer-time,
+  .timer-queue,
+  .timer-side_buttons {
+    height: 90px;
+  }
+  .timer-time {
+    width: 157px;
+  }
+  .time-text {
+    font-size: 45px;
+    line-height: 90px;
+  }
+  .timer-queue {
+    width: 68px;
+  }
+  .queue_panel {
+    height: 72px;
+    margin-top: 9px;
+  }
+  .queue_panel-title {
+    font-size: 15px;
+  }
+  .queue_panel-list {
+  }
+  .timer-side_buttons {
+    width: 45px;
+  }
+  .button-small {
+    line-height: 18px;
+    margin-top: 9px;
+    margin-bottom: 2px;
+    width: 30px;
+  }
+  .timer-bottom,
+  .timer-bottom .timer-button,
+  .timer-bottom .timer-button .flat-button {
+    height: 34px;
+  }
+  .timer-bottom .timer-button {
+    width: 90px;
+  }
+  .timer-bottom .timer-button .flat-button {
+    line-height: 34px;
+    font-size: 18px;
+  }
+}
