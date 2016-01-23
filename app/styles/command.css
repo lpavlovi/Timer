@@ -4,7 +4,7 @@
   top: 15px;
   width: 88%;
   left: 6%;
-  height: 65px; 
+  height: 65px;
   z-index: 2;
   border-radius:6px;
 }
@@ -19,4 +19,16 @@
   line-height: 65px;
   padding: 0px 25px 0px 25px;
   text-align: center;
+}
+.droplist {
+  /* background-color: black;*/
+  margin: auto;
+  border: 2px solid red;
+  position: relative;
+  text-align: center;
+}
+.list-item {
+}
+.list-text {
+
 }

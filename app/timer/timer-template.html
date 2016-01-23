@@ -1,41 +1,34 @@
-<div class="timer-container input_state_opacity">
-  <div class="row top-row-container">
-    <div class="top-row-background">
-      <div class="col-xs-7 no_padding">
-        <div class="time-text">
-<!--          Add an angular binding for the time to be displayed here-->
-        <!-- eg: front.time -->
-          {{front.time}}
+<div id="timer" class="timer-container">
+  <!-- Top row - where the time goes -->
+  <div class="timer-top">
+    <div class="timer-time outline time-text">
+      {{front.time}}
+    </div>
+    <div class="timer-queue">
+      <div class="queue_panel">
+        <div class="queue_panel-title">Queue</div>
+        <div class="queue_panel-list">
+          <ul class="no-style">
+            <li ng-repeat="q in front.queue track by $index">{{q.interval}}</li>
+          </ul>
         </div>
       </div>
-      <!-- add the queue column here -->
-      <div class="col-xs-3 no_padding">
-        <div class="queue_panel no_padding">
-          <div class="queue_panel-title">Queue</div>
-          <div class="queue_panel-list">
-            <ul class="no_points no_padding">
-<!--Added a front.queue in the repeat directive -->
-<!--              <li ng-repeat="q in front.queue">{{q | doubleDigit}}</li>-->
-              <li ng-repeat="q in front.queue track by $index">{{q.interval}}</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-2 top-row-right-panel">
-        <button class="button-small gray-button" data-ng-click="remove()"><i class="fa fa-times"></i></button>
-        <button class="button-small gray-button" data-ng-click="hardReset()"><i class="fa fa-repeat"></i></button>
-      </div>
+    </div>
+    <div class="timer-side_buttons outline">
+      <button class="button-small gray-button" data-ng-click="remove()"><i class="fa fa-times"></i></button>
+      <button class="button-small gray-button" data-ng-click="hardReset()"><i class="fa fa-repeat"></i></button>
     </div>
   </div>
-  <div class="row button-row">
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no_padding button-left">
-      <button data-ng-click="start()" class="flat-button fb-start button-font button-left">Start</button>
+  <!-- Bottm row - buttons -->
+  <div class="timer-bottom">
+    <div class="timer-button">
+      <button data-ng-click="start()" class="flat-button fb-start">Start</button>
     </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no_padding button-middle">
-      <button data-ng-click="stop()" class="flat-button fb-stop button-font">Stop</button>
+    <div class="timer-button">
+      <button data-ng-click="stop()" class="flat-button fb-stop">Stop</button>
     </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 no_padding col-lg-4">
-      <button data-ng-click="reset()" class="flat-button fb-reset button-right button-font">Reset</button>
+    <div class="timer-button">
+      <button data-ng-click="reset()" ng-disabled="display"class="flat-button fb-reset">Reset</button>
     </div>
   </div>
 </div>

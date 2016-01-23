@@ -1,38 +1,43 @@
-.button-small{
-    color: #fff !important;
-    word-spacing: 0.25em;
-    font-family: 'Open Sans', sans-serif;
-    text-transform: uppercase;
-    border: none;
-    line-height: 22px;
-    padding: 6px 0px 6px 0px;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 8px;
-    text-decoration: none;
-    width: 50px;
+.timer-button {
+  position:relative;
+  float:left;
+  width: 150px;
+  height: 40px;
 }
-.button-small:visited{
-      color: #fff;
+.flat-button {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  border: 0;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
 }
-.button-small:hover{
-    color: rgba(255,255,255, 0.75);
-    text-decoration: none;
-    -webkit-box-shadow:inset 0 10px 20px rgba(255,255,255, 0.10);
-    -moz-box-shadow: inset 0 10px 20px rgba(255,255,255, 0.10);
-    box-shadow: inset 0 10px 20px rgba(255,255,255, 0.10);
+.flat-button:active {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
-.button-small:active {
-    -webkit-box-shadow: inset 0 2px 2px rgba(0,0,0, 0.3), inset 0 10px 20px rgba(0,0,0, 0.08);
-    -moz-box-shadow: inset 0 2px 2px rgba(0,0,0, 0.3), inset 0 10px 20px rgba(0,0,0, 0.08);
-    box-shadow: inset 0 2px 2px rgba(0,0,0, 0.3), inset 0 10px 20px rgba(0,0,0, 0.08);
+.fb-start {
+    background: #2ecc71;
+    border-bottom: 2px solid #28be68;
+    -webkit-box-shadow: inset 0 -2px #28be68;
+    box-shadow: inset 0 -2px #28be68;
+    border-radius: 0px 0px 0px 12px;    
 }
-.rounded-button {
-	-webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+.fb-stop {
+    background: #e74c3c;
+    border-bottom: 2px solid #db4334;
+    -webkit-box-shadow: inset 0 -2px #db4334;
+    box-shadow: inset 0 -2px #db4334;
 }
-.gray-button {
-  background: rgb(160, 160, 160);
-  border-radius: 4px;
+.fb-reset {
+    background: #3498db;
+    border-bottom: 2px solid #2a8bcc;
+    -webkit-box-shadow: inset 0 -2px #2a8bcc;
+    box-shadow: inset 0 -2px #2a8bcc;
+    border-radius: 0px 0px 12px 0px;    
 }
