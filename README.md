@@ -1,6 +1,12 @@
 # Timer
 
-Electron (Atom-shell) timer application. Currently a work in progress.
+Electron (Atom-shell) timer application. See here: http://luka-timer.herokuapp.com
+
+## Recently Updates
+
+UI: Now includes a mini version of the original timer
+
+![alt tag](http://i.imgur.com/WAYcBXR.png)
 
 Allows the user to specify a time to be counted down.
 Includes the feature to set a queue of time intervals to be conunted down.
